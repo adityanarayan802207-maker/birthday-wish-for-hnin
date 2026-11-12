@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffe5f0">
+<title>A Little Birthday Surprise ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Pacifico&family=Playfair+Display:wght@500;600&display=swap');
+:root{--pink:#f7a9c4;--deep:#9d426d;--ink:#63364d;--cream:#fff8f7;--lilac:#e9dafa}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:'DM Sans',sans-serif;background:linear-gradient(135deg,#ffe7ef,#f7eaff 55%,#fff3e8);min-height:100vh;overflow-x:hidden}
+button{font:inherit;cursor:pointer;border:0}
+.hidden{display:none!important}
+#intro{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center;position:relative;overflow:hidden}
+.glow{position:absolute;width:340px;height:340px;border-radius:50%;background:#fff8;filter:blur(50px);top:10%;left:calc(50% - 170px)}
+.envelope-wrap{position:relative;z-index:1;max-width:520px;width:100%}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:#a45a7d}
+h1{font:clamp(2.2rem,8vw,4rem) 'Pacifico',cursive;color:#a34672;margin:12px 0}
+.subtitle{line-height:1.7;color:#81536a}
+.envelope{width:min(290px,80vw);height:190px;margin:32px auto 22px;background:#f5a9c4;border-radius:12px;position:relative;box-shadow:0 18px 40px #a84e7330;display:grid;place-items:center;overflow:hidden}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 49.5%,#e98eb0 50%),linear-gradient(215deg,transparent 49.5%,#f8bfd2 50%)}
+.envelope:after{content:"";position:absolute;top:0;left:0;right:0;margin:auto;border-left:145px solid transparent;border-right:145px solid transparent;border-top:112px solid #fbd0df;filter:drop-shadow(0 3px 2px #b75b8030)}
+.seal{z-index:2;background:#fff4f8;color:#b24f7d;border-radius:50%;width:54px;height:54px;display:grid;place-items:center;font-size:1.5rem;box-shadow:0 4px 12px #9d426d33}
+.primary,.secondary{border-radius:999px;padding:14px 25px;background:linear-gradient(135deg,#ee8fb5,#bd75b4);color:white;font-weight:700;box-shadow:0 8px 20px #bd75b455;transition:.2s}
+.primary:hover,.secondary:hover{transform:translateY(-2px)}
+main{max-width:1000px;margin:auto;padding:26px 18px 70px}
+.top{text-align:center;padding:20px 0 10px}
+.top h1{margin-bottom:4px}
+.tagline{color:#9d6680}
+.panel{background:#ffffffbd;border:1px solid #fff;border-radius:26px;padding:22px;margin:20px 0;box-shadow:0 12px 35px #a85b7b16;backdrop-filter:blur(8px)}
+.section-title{font:1.55rem 'Playfair Display',serif;text-align:center;color:#9d426d;margin:0 0 16px}
+.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.photo{background:white;padding:7px 7px 25px;border-radius:5px;box-shadow:0 5px 16px #6b3d5020;transform:rotate(var(--r));transition:.25s}
+.photo:hover{transform:rotate(0) translateY(-5px)}
+.photo img{display:block;width:100%;height:190px;object-fit:cover;border-radius:3px}
+.caption{text-align:center;font: .82rem 'Pacifico',cursive;color:#a65a7c;padding-top:7px}
+.wish{font:clamp(1.05rem,2.7vw,1.3rem) 'Playfair Display',serif;line-height:1.8;text-align:center;max-width:740px;margin:auto}
+.burmese{font-size:1rem;line-height:2.1;margin-top:12px}
+.cake-area{text-align:center}
+.cake{width:230px;height:150px;margin:48px auto 12px;position:relative}
+.plate{position:absolute;bottom:0;left:-22px;width:274px;height:24px;border-radius:50%;background:linear-gradient(#fff,#e8c6d9);box-shadow:0 7px 10px #9b5a7b25}
+.tier{position:absolute;bottom:15px;left:15px;width:200px;height:85px;border-radius:15px 15px 22px 22px;background:linear-gradient(90deg,#f7a8c2,#ffd3df 48%,#ef9fbd);box-shadow:inset 0 -9px #e989ad}
+.icing{position:absolute;top:0;left:0;width:100%;height:28px;background:#fff0f5;border-radius:14px 14px 8px 8px}
+.icing:after{content:"";position:absolute;right:25px;top:15px;width:15px;height:27px;border-radius:0 0 12px 12px;background:#fff0f5;box-shadow:-58px 2px #fff0f5,-115px 0 #fff0f5}
+.berries{position:absolute;top:-8px;left:55px;font-size:24px;letter-spacing:7px}
+.candle{position:absolute;z-index:2;bottom:99px;left:105px;width:12px;height:48px;border-radius:4px;background:repeating-linear-gradient(45deg,#fff 0 6px,#e77fa8 6px 11px)}
+.flame{position:absolute;left:-2px;top:-20px;width:16px;height:22px;background:radial-gradient(ellipse at 50% 70%,#fff9a8 0 25%,#ffad4f 55%,#ff7a58 75%);border-radius:50% 50% 45% 45%;filter:drop-shadow(0 0 8px #ffb44e);animation:flicker .8s infinite alternate}
+@keyframes flicker{to{transform:rotate(7deg) scale(.88)}}
+.cake-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.secondary{background:#fff;color:#a34672;border:1px solid #f2bfd2;box-shadow:none}
+#cakeMessage{min-height:30px;color:#a34672;font-weight:600;margin-top:14px}
+.music{text-align:center}
+.memory-intro{text-align:center;line-height:1.7;color:#93647b}
+.memory-toggle{display:block;margin:16px auto 0}
+.memory-gallery{display:none;margin-top:20px}
+.memory-gallery.open{display:grid;animation:fadeUp .55s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.photo-box-lid{font:1.05rem 'Pacifico',cursive;color:#a34672;background:linear-gradient(135deg,#ffe1ec,#f5dafa);border:1px dashed #e5a6c1;border-radius:16px;padding:18px;text-align:center}
+.cake{perspective:700px}
+.tier{transform-origin:center;transition:transform .8s ease}
+.tier:before{content:"";position:absolute;right:-1px;top:20px;width:0;height:0;border-top:24px solid transparent;border-bottom:24px solid transparent;border-left:26px solid #f5b2ca;opacity:0;transition:opacity .4s}
+.cake.cut .tier{transform:translateX(-24px) rotate(-7deg)}
+.cake.cut .tier:before{opacity:1}
+.cake.cut .plate:after{content:"🍰";position:absolute;right:18px;bottom:18px;font-size:38px;animation:sliceIn .7s ease both}
+@keyframes sliceIn{from{opacity:0;transform:translate(20px,-12px) scale(.5)}to{opacity:1;transform:translate(0,0) scale(1)}}
+.final-note{display:none;margin:20px auto 0;max-width:680px;background:linear-gradient(145deg,#fff8fb,#fff0f6);border:1px solid #f0c4d6;border-radius:20px;padding:22px;box-shadow:0 8px 25px #a85b7b16;animation:fadeUp .7s ease both}
+.final-note.show{display:block}
+.final-note h3{font:1.5rem 'Pacifico',cursive;color:#a34672;text-align:center;margin:0 0 10px}
+.final-note p{text-align:center;line-height:1.8;margin:8px 0}
+.music small{display:block;color:#93647b;margin:8px}
+.footer{text-align:center;color:#a06a83;font-size:.85rem;padding:22px}
+.float{position:fixed;bottom:-30px;pointer-events:none;z-index:10;animation:rise 5s linear forwards}
+@keyframes rise{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:20}
+@media(max-width:760px){.gallery{grid-template-columns:repeat(2,1fr)}.photo img{height:220px}.photo:last-child{grid-column:1/-1;width:65%;justify-self:center}.panel{padding:17px}.top h1{font-size:2.7rem}}
+@media(max-width:390px){.photo img{height:175px}.gallery{gap:9px}}
+</style>
+</head>
+<body>
+<section id="intro">
+  <div class="glow"></div>
+  <div class="envelope-wrap">
+    <div class="eyebrow">a tiny surprise, made just for you</div>
+    <h1>Hey, Birthday Girl! ♡</h1>
+    <p class="subtitle">A little bundle of flowers, memories and wishes<br>is waiting inside...</p>
+    <div class="envelope"><div class="seal">♡</div></div>
+    <button class="primary" id="openBtn">Open your surprise ✨</button>
+    <p class="subtitle">psst... turn your sound on ♫</p>
+  </div>
+</section>
+
+<main id="celebration" class="hidden">
+  <header class="top">
+    <div class="eyebrow">for someone wonderful</div>
+    <h1>Happy Birthday!</h1>
+    <div class="tagline">May your day be as lovely as you are ♡</div>
+  </header>
+
+  <section class="panel">
+    <h2 class="section-title">A little gallery of you 🌸</h2>
+    <div class="gallery">
+      <div class="photo" style="--r:-3deg"><img src="photos/photo1.jpg" alt="Birthday girl photo 1"><div class="caption">sweet moments ♡</div></div>
+      <div class="photo" style="--r:2deg"><img src="photos/photo2.jpg" alt="Birthday girl photo 2"><div class="caption">little sunshine</div></div>
+      <div class="photo" style="--r:-2deg"><img src="photos/photo3.jpg" alt="Birthday girl photo 3"><div class="caption">so lovely</div></div>
+      <div class="photo" style="--r:3deg"><img src="photos/photo4.jpg" alt="Birthday girl photo 4"><div class="caption">beautiful memories</div></div>
+      <div class="photo" style="--r:-1deg"><img src="photos/photo5.jpg" alt="Birthday girl photo 5"><div class="caption">keep smiling ♡</div></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="section-title">Your little memory box 🎀</h2>
+    <p class="memory-intro">Five little snapshots, saved here like tiny flowers in a scrapbook.<br>Tap below to open your photo box ♡</p>
+    <div class="photo-box-lid">♡ A box full of your lovely moments ♡</div>
+    <button class="secondary memory-toggle" id="memoryBtn">Open the photo box ✨</button>
+    <div class="gallery memory-gallery" id="memoryGallery">
+      <div class="photo" style="--r:-3deg"><img src="photos/photo1.jpg" alt="Birthday memory 1"><div class="caption">a sweet little moment</div></div>
+      <div class="photo" style="--r:2deg"><img src="photos/photo2.jpg" alt="Birthday memory 2"><div class="caption">your lovely smile</div></div>
+      <div class="photo" style="--r:-2deg"><img src="photos/photo3.jpg" alt="Birthday memory 3"><div class="caption">a happy memory</div></div>
+      <div class="photo" style="--r:3deg"><img src="photos/photo4.jpg" alt="Birthday memory 4"><div class="caption">simply beautiful</div></div>
+      <div class="photo" style="--r:-1deg"><img src="photos/photo5.jpg" alt="Birthday memory 5"><div class="caption">keep shining ♡</div></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="section-title">A wish from the heart 💌</h2>
+    <p class="wish">Today is all about you! May your life always be filled with happiness, good health, beautiful memories and endless smiles. May all your dreams come true. You deserve all the beautiful things in this world. Have the loveliest year ahead. Happy Birthday! ♡</p>
+    <p class="wish burmese" lang="my">ဒီနေ့က မင်းအတွက် အထူးနေ့လေးပါ။ မင်းရဲ့ဘဝမှာ ပျော်ရွှင်မှုတွေ၊ ကျန်းမာခြင်းတွေ၊ လှပတဲ့အမှတ်တရတွေနဲ့ အပြုံးတွေ အမြဲပြည့်နှက်နေပါစေ။ မင်းရဲ့အိပ်မက်တွေအားလုံး အမှန်တကယ်ဖြစ်လာပါစေ။ လှပတဲ့အရာအားလုံး မင်းဘဝထဲကို ရောက်ရှိလာပါစေ။ ပျော်ရွှင်စရာ မွေးနေ့လေး ဖြစ်ပါစေ။ ♡</p>
+  </section>
+
+  <section class="panel cake-area">
+    <h2 class="section-title">Your little birthday cake 🎂</h2>
+    <p>Make a wish, then blow out your candle!</p>
+    <div class="cake">
+      <div class="candle" id="candle"><div class="flame" id="flame"></div></div>
+      <div class="tier"><div class="icing"></div><div class="berries">🍓 🌸 🍓</div></div>
+      <div class="plate"></div>
+    </div>
+    <div class="cake-actions">
+      <button class="primary" id="blowBtn">Blow out the candle ✨</button>
+      <button class="secondary" id="cutBtn">Cut the cake ♡</button>
+    </div>
+    <div id="cakeMessage" aria-live="polite"></div>
+    <div class="final-note" id="finalNote">
+      <h3>A little message, just for you ♡</h3>
+      <p>I wish I could be there to celebrate with you, but until then, here's a little piece of happiness made just for you. May this new year of your life bring you countless reasons to smile. You deserve the sweetest things. 💗</p>
+      <p class="burmese" lang="my">မင်းနဲ့အတူ ဒီမွေးနေ့လေးကို အတူတူဆင်နွှဲနိုင်ရင် သိပ်ကောင်းမှာပဲ။ အခုတော့ မင်းအတွက် ပျော်ရွှင်မှုလေးတစ်စိတ်တစ်ပိုင်းကို ဒီလက်ဆောင်လေးအဖြစ် ပို့ပေးလိုက်ပါတယ်။ မင်းရဲ့ဘဝနှစ်သစ်မှာ ပြုံးပျော်စရာအကြောင်းအရင်းတွေ အများကြီး ရရှိပါစေ။ 💗</p>
+      <p><strong>With lots of love, always ♡</strong></p>
+    </div>
+  </section>
+
+  <section class="panel music">
+    <h2 class="section-title">A birthday song for you 🎶</h2>
+    <p>Press play for a little musical birthday hug.</p>
+    <button class="primary" id="musicBtn">▶ Play Happy Birthday</button>
+    <small>Original synthesized tune • Tap again to pause</small>
+  </section>
+  <div class="footer">Made with lots of love, flowers &amp; little wishes ♡</div>
+</main>
+<canvas id="confetti"></canvas>
+<script>
+const intro=document.getElementById('intro'), main=document.getElementById('celebration');
+function floatHearts(){const e=document.createElement('div');e.className='float';e.textContent=['♡','🌸','✨','💗'][Math.floor(Math.random()*4)];e.style.left=Math.random()*100+'vw';e.style.fontSize=(16+Math.random()*20)+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),5100)}
+let heartTimer;
+document.getElementById('openBtn').addEventListener('click',()=>{
+  intro.classList.add('hidden');main.classList.remove('hidden');window.scrollTo(0,0);
+  heartTimer=setInterval(floatHearts,650);burst();
+});
+const memoryBtn=document.getElementById('memoryBtn');
+memoryBtn.addEventListener('click',()=>{
+  const gallery=document.getElementById('memoryGallery');
+  gallery.classList.toggle('open');
+  memoryBtn.textContent=gallery.classList.contains('open')?'Close the photo box ♡':'Open the photo box ✨';
+});
+const flame=document.getElementById('flame'), message=document.getElementById('cakeMessage');
+document.getElementById('blowBtn').addEventListener('click',()=>{
+  flame.style.display='none';message.textContent='Wish sent to the universe! ✨💗';burst();
+});
+document.getElementById('cutBtn').addEventListener('click',()=>{
+  const cake=document.querySelector('.cake');
+  cake.classList.add('cut');
+  message.textContent='Yay! The cake is cut! A sweet slice just for you. 🍰';
+  document.getElementById('finalNote').classList.add('show');
+  burst();
+  document.getElementById('finalNote').scrollIntoView({behavior:'smooth',block:'center'});
+});
+
+// Happy Birthday melody, synthesized locally with Web Audio (no external audio file).
+let audioCtx=null, playing=false, timers=[], noteIndex=0;
+const notes=[
+ [392,.32],[392,.32],[440,.64],[392,.64],[523,.64],[494,1.0],
+ [392,.32],[392,.32],[440,.64],[392,.64],[587,.64],[523,1.0],
+ [392,.32],[392,.32],[784,.64],[659,.64],[523,.64],[494,.64],[440,1.0],
+ [698,.32],[698,.32],[659,.64],[523,.64],[587,.64],[523,1.1]
+];
+function stopSong(){timers.forEach(clearTimeout);timers=[];playing=false;document.getElementById('musicBtn').textContent='▶ Play Happy Birthday';}
+function playSong(){
+  if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  audioCtx.resume();playing=true;noteIndex=0;document.getElementById('musicBtn').textContent='Ⅱ Pause song';
+  let start=audioCtx.currentTime+.08, offset=0;
+  notes.forEach(([freq,dur])=>{
+    const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();
+    osc.type='sine';osc.frequency.value=freq;gain.gain.setValueAtTime(.0001,start+offset);
+    gain.gain.exponentialRampToValueAtTime(.12,start+offset+.025);
+    gain.gain.exponentialRampToValueAtTime(.0001,start+offset+dur*.88);
+    osc.connect(gain);gain.connect(audioCtx.destination);osc.start(start+offset);osc.stop(start+offset+dur);
+    offset+=dur+.06;
+  });
+  timers.push(setTimeout(()=>{stopSong()},offset*1000+100));
+}
+document.getElementById('musicBtn').addEventListener('click',()=>playing?stopSong():playSong());
+
+// Lightweight confetti burst
+const canvas=document.getElementById('confetti'),ctx=canvas.getContext('2d');let bits=[],raf;
+function resize(){canvas.width=innerWidth*devicePixelRatio;canvas.height=innerHeight*devicePixelRatio;ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}
+addEventListener('resize',resize);resize();
+function burst(){
+  for(let i=0;i<100;i++)bits.push({x:innerWidth/2+(Math.random()-.5)*160,y:innerHeight*.45,vx:(Math.random()-.5)*8,vy:-Math.random()*8-2,size:3+Math.random()*5,life:90+Math.random()*35,rot:Math.random()*6});
+  if(!raf)animate();
+}
+function animate(){
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+  bits=bits.filter(b=>b.life-->0);
+  bits.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.vy+=.13;b.rot+=.1;ctx.save();ctx.translate(b.x,b.y);ctx.rotate(b.rot);ctx.fillStyle=['#f28db4','#d9a5e8','#ffd27d','#ffffff'][Math.floor(Math.random()*4)];ctx.fillRect(-b.size/2,-b.size/2,b.size,b.size*1.7);ctx.restore()});
+  if(bits.length)raf=requestAnimationFrame(animate);else{cancelAnimationFrame(raf);raf=null;ctx.clearRect(0,0,innerWidth,innerHeight)}
+}
+</script>
+</body>
+</html>
